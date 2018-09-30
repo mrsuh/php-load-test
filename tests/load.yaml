@@ -1,0 +1,12 @@
+phantom:
+  address: 1.1.1.1:80 # [Target's address]:[target's port]
+  uris:
+    - /
+  load_profile:
+    load_type: rps # schedule load by defining requests per second
+    schedule: line(1, 10, 1m) # starting from 1rps growing linearly to 10rps during 10 minutes
+  ssl: true
+console:
+  enabled: true # enable console output
+telegraf:
+  enabled: true # let's disable telegraf monitoring for the first time
