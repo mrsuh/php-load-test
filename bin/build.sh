@@ -12,8 +12,7 @@ which composer      >/dev/null || Fail "composer not found"
 cd "$(realpath "$(dirname "$0")"/..)"
 
 composer install --prefer-dist --no-interaction
-composer dumpautoload -o
+composer dump-autoload --optimize --classmap-authoritative
 
-php bin/console cache:clear --no-warmup --env=dev
-php bin/console cache:clear --no-warmup --env=prod
-php bin/console cache:warmup --env=prod
+php bin/console cache:clear --no-warmup
+php bin/console cache:warmup

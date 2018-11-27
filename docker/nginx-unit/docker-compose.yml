@@ -18,12 +18,13 @@ services:
             - 8300
         volumes:
             - ./../../var/log:/var/log
-            - app-volume:/app
+            - ./unit/php.ini:/usr/local/etc/php/php.ini:ro
+            - app-volume:/app:cached
 
     app:
         build: ../..
         volumes:
-            - app-volume:/app
+            - app-volume:/app:cached
 
 volumes:
     app-volume:

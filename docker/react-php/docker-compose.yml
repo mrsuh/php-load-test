@@ -13,10 +13,11 @@ services:
             - app
 
     php:
-        image: php:7.2-cli
+        build: ./php-cli
         working_dir: /app
         volumes:
-            - app-volume:/app
+            - app-volume:/app:cached
+            - ./php-cli/php.ini:/usr/local/etc/php/php.ini:ro
         expose:
             - 9000
         command:
@@ -26,7 +27,7 @@ services:
     app:
         build: ../..
         volumes:
-            - app-volume:/app
+            - app-volume:/app:cached
 
 volumes:
     app-volume:
