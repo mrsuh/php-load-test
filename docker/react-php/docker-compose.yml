@@ -1,0 +1,24 @@
+version: '2.3'
+
+services:
+
+    nginx:
+        image: nginx:latest
+        ports:
+            - 8000:80
+        volumes:
+            - ./nginx/docker.conf:/etc/nginx/conf.d/default.conf:ro
+            - ../../:/app
+        depends_on:
+            - php
+
+    php:
+        image: php:7.2-cli
+        working_dir: /app
+        volumes:
+            - ../../:/app
+        expose:
+            - 9000
+        command:
+            - /app/bin/react.php
+        scale: 20

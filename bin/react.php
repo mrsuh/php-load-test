@@ -23,9 +23,9 @@ $server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterfac
         $request->getQueryParams(),
         $post,
         [],
-        $request->getCookieParams(), // To get the cookies, we'll need to parse the headers
+        $request->getCookieParams(),
         $request->getUploadedFiles(),
-        [], // Server is partially filled a few lines below
+        [],
         $content
     );
     $sfRequest->setMethod($method);
@@ -46,9 +46,9 @@ $server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterfac
     );
 });
 
-$socket = new React\Socket\Server(8080, $loop);
+$socket = new React\Socket\Server('tcp://0.0.0.0:9000', $loop);
 $server->listen($socket);
 
-echo "Server running at http://127.0.0.1:8080\n";
+echo "Server running at tcp://0.0.0.0:9000\n";
 
 $loop->run();

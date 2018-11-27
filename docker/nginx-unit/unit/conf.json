@@ -1,0 +1,15 @@
+{
+  "listeners": {
+    "*:8300": {
+      "application": "example_php"
+    }
+  },
+  "applications": {
+    "example_php": {
+      "type": "php",
+      "processes": 20,
+      "root": "/app/public",
+      "index": "index.php"
+    }
+  }
+}

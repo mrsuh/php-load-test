@@ -7,15 +7,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController
 {
+    private $time = 0;
+
     /**
-      * @Route("/default")
-      */
+     * @Route("/")
+     */
     public function number()
     {
-        $number = random_int(0, 100);
+        if (0 === $this->time) {
+            $this->time = random_int(0, 100000);
+        }
 
         return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
+            '<html><body>Time: ' . $this->time . '</body></html>'
         );
     }
 }
