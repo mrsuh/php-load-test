@@ -1,4 +1,4 @@
-version: '2.3'
+version: '3'
 
 services:
 
@@ -22,7 +22,6 @@ services:
             - 9000
         command:
             - /app/bin/react.php
-        scale: 20
 
     app:
         build: ../..
