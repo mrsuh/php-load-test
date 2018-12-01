@@ -10,3 +10,5 @@ RUN apt-get update && apt-get install -y \
         opcache
 
 RUN usermod -u 1000 www-data
+
+COPY ./php.ini /usr/local/etc/php/php.ini

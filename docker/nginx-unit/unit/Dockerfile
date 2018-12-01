@@ -24,5 +24,6 @@ RUN apt-key add nginx_signing.key && \
 			unit-php=$VERSION
 
 COPY ./conf.json /var/lib/unit/
+COPY ./php.ini /usr/local/etc/php/php.ini
 
 CMD ["/usr/sbin/unitd", "--no-daemon", "--control", "0.0.0.0:8080", "--log", "/var/log/unit.log"]

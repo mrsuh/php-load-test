@@ -21,14 +21,14 @@ services:
             - 9000
         environment:
             TIMEZONE: Europe/Paris
+            APP_ENV: prod
+            APP_TYPE: php-fpm
         volumes:
             - app-volume:/app:cached
-            - ./php-fpm/php-fpm.conf:/usr/local/etc/php-fpm.conf:ro
-            - ./php-fpm/php.ini:/usr/local/etc/php/php.ini:ro
     app:
         build: ../..
         volumes:
-            - app-volume:/app:cached
+            - app-volume:/app
 
 volumes:
     app-volume:

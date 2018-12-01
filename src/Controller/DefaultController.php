@@ -2,24 +2,27 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController
 {
-    private $time = 0;
+    private $num = 0;
 
     /**
      * @Route("/")
      */
     public function number()
     {
-        if (0 === $this->time) {
-            $this->time = random_int(0, 100000);
+        if (0 === $this->num) {
+            $this->num = random_int(0, 100000);
         }
 
-        return new Response(
-            '<html><body>Time: ' . $this->time . '</body></html>'
-        );
+        return new JsonResponse([
+            'random_num' => $this->num,
+            'env'        => getenv('APP_ENV'),
+            'type'       => getenv('APP_TYPE'),
+            'pid'        => getmypid()
+        ]);
     }
 }

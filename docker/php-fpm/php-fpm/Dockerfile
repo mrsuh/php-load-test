@@ -10,3 +10,6 @@ RUN apt-get update && apt-get install -y \
         opcache
 
 RUN usermod -u 1000 www-data
+
+COPY ./php-fpm.conf /usr/local/etc/php-fpm.conf
+COPY ./php.ini /usr/local/etc/php/php.ini

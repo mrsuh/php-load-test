@@ -1,0 +1,7 @@
+http:
+    address: 0.0.0.0:9000
+    workers:
+        command: "php /app/bin/road-runner-worker.php"
+        relay:    "unix:///tmp/road-runner.sock"
+        pool:
+            numWorkers: 20

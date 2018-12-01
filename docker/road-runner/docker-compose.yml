@@ -9,21 +9,19 @@ services:
         volumes:
             - ./nginx/docker.conf:/etc/nginx/conf.d/default.conf:ro
         depends_on:
-            - php
+            - road-runner
             - app
 
-    php:
-        build: ./php-cli
-        working_dir: /app
+    road-runner:
+        build: ./road-runner
+        working_dir: /roadrunner
         environment:
             APP_ENV: prod
-            APP_TYPE: react-php
+            APP_TYPE: road-runner
         volumes:
             - app-volume:/app:cached
         expose:
             - 9000
-        command:
-            - /app/bin/react-worker.php
 
     app:
         build: ../..

@@ -9,7 +9,11 @@
       "type": "php",
       "processes": 20,
       "root": "/app/public",
-      "index": "index.php"
+      "index": "index.php",
+      "environment": {
+        "APP_ENV": "prod",
+        "APP_TYPE": "nginx-unit"
+      }
     }
   }
 }
