@@ -1,0 +1,5 @@
+<Monitoring>
+  <Host address="$SERVER" interval="1" username="$USERNAME">
+    <CPU/> <Kernel/> <Net/> <System/> <Memory/> <Disk/> <Netstat /> <Nstat/>
+  </Host>
+</Monitoring>

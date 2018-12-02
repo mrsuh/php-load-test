@@ -1,0 +1,22 @@
+phantom:
+  address: $SERVER:$PORT
+  uris:
+    - /
+  load_profile:
+    load_type: rps # schedule load by defining requests per second
+    schedule: line(1, 100, 1m) # starting from 1rps growing linearly to 10rps during 10 minutes
+    autostop:
+      autostop:
+        - http(5xx,10%,1s)
+console:
+  enabled: true
+telegraf:
+  config: 'monitoring.xml'
+  enabled: true
+  kill_old: false
+  package: yandextank.plugins.Telegraf
+  ssh_timeout: 30s
+overload:
+  enabled: true
+  package: yandextank.plugins.DataUploader
+  token_file: 'overload_token.txt'

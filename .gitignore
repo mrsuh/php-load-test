@@ -1,8 +1,9 @@
 /.idea
 /tests/logs
-###> symfony/framework-bundle ###
+/tests/overload_token.txt
+/tests/load.yaml
+/tests/monitoring.xml
 /.env
 /public/bundles/
 /var/
 /vendor/
-###< symfony/framework-bundle ###
