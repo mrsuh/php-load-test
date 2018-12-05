@@ -25,6 +25,7 @@ services:
             APP_TYPE: php-fpm
         volumes:
             - app-volume:/app:cached
+
     app:
         build: ../..
         volumes:

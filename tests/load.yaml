@@ -1,12 +1,22 @@
 phantom:
-  address: 1.1.1.1:80 # [Target's address]:[target's port]
+  address: 185.147.80.137:8000 # [Target's address]:[target's port]
   uris:
     - /
   load_profile:
-    load_type: rps # schedule load by defining requests per second
-    schedule: line(1, 10, 1m) # starting from 1rps growing linearly to 10rps during 10 minutes
-  ssl: true
+    load_type: rps
+    schedule: line(1, 10000, 1m)
+    autostop:
+      autostop:
+        - http(5xx,10%,1s)
 console:
-  enabled: true # enable console output
+  enabled: true
 telegraf:
-  enabled: true # let's disable telegraf monitoring for the first time
+  config: 'monitoring.xml'
+  enabled: true
+  kill_old: false
+  package: yandextank.plugins.Telegraf
+  ssh_timeout: 30s
+overload:
+  enabled: true
+  package: yandextank.plugins.DataUploader
+  token_file: 'overload_token.txt'
