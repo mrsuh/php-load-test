@@ -27,7 +27,9 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false
 
 $loop   = React\EventLoop\Factory::create();
 $kernel = new Kernel($env, $debug);
-$server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterface $request) use ($kernel) {
+$kernel->boot();
+$logger = $kernel->getContainer()->get('logger');
+$server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterface $request) use ($kernel, $logger) {
 
     $method  = $request->getMethod();
     $headers = $request->getHeaders();
@@ -54,7 +56,16 @@ $server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterfac
     if (isset($headers['Host'])) {
         $sfRequest->server->set('SERVER_NAME', current($headers['Host']));
     }
-    $sfResponse = $kernel->handle($sfRequest);
+
+    try {
+        $sfResponse = $kernel->handle($sfRequest);
+    } catch (\Exception $e) {
+        $logger->error('Internal server error', ['error' => $e->getMessage(), 'trace' => $e->getTraceAsString()]);
+        $sfResponse = new \Symfony\Component\HttpFoundation\Response('Internal server error', 500);
+    } catch (\Throwable $e) {
+        $logger->error('Internal server error', ['error' => $e->getMessage(), 'trace' => $e->getTraceAsString()]);
+        $sfResponse = new \Symfony\Component\HttpFoundation\Response('Internal server error', 500);
+    }
 
     $kernel->terminate($sfRequest, $sfResponse);
 
@@ -63,6 +74,10 @@ $server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterfac
         $sfResponse->headers->all(),
         $sfResponse->getContent()
     );
+});
+
+$server->on('error', function (\Exception $e) use ($logger) {
+    $logger->error('Internal server error', ['error' => $e->getMessage(), 'trace' => $e->getTraceAsString()]);
 });
 
 $socket = new React\Socket\Server('tcp://0.0.0.0:9000', $loop);

@@ -32,6 +32,7 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false
 }
 
 $kernel                = new Kernel($env, $debug);
+$kernel->boot();
 $relay                 = new SocketRelay('/tmp/road-runner.sock', null, SocketRelay::SOCK_UNIX);
 $psr7                  = new PSR7Client(new Worker($relay));
 $httpFoundationFactory = new HttpFoundationFactory();
