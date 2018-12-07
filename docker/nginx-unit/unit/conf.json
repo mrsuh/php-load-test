@@ -11,8 +11,12 @@
       "root": "/app/public",
       "index": "index.php",
       "environment": {
+        "TIMEZONE": "Europe/Paris",
         "APP_ENV": "prod",
         "APP_TYPE": "nginx-unit"
+      },
+      "options": {
+        "file": "/usr/local/etc/php/php.ini"
       }
     }
   }

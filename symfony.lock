@@ -38,6 +38,9 @@
     "http-interop/http-factory-diactoros": {
         "version": "1.0.0"
     },
+    "monolog/monolog": {
+        "version": "1.24.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -116,6 +119,9 @@
             "ref": "e3868d2f4a5104f19f844fe551099a00c6562527"
         }
     },
+    "symfony/contracts": {
+        "version": "v1.0.1"
+    },
     "symfony/debug": {
         "version": "v4.1.4"
     },
@@ -157,6 +163,18 @@
     },
     "symfony/http-kernel": {
         "version": "v4.1.4"
+    },
+    "symfony/monolog-bridge": {
+        "version": "v4.2.0"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.1",
+            "ref": "18ebf5a940573a20de06f9c4060101eeb438cf3d"
+        }
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.9.0"

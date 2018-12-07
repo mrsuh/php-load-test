@@ -15,6 +15,7 @@ RUN mv composer.phar /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer
 
 COPY . /app
+ENV APP_ENV prod
 RUN sh /app/bin/build.sh
 
 FROM alpine
