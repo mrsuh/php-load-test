@@ -21,3 +21,4 @@ RUN sh /app/bin/build.sh
 FROM alpine
 
 COPY --from=build /app /app
+RUN chmod -R 777 /app/var
