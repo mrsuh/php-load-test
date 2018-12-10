@@ -26,11 +26,7 @@ class Kernel extends BaseKernel
 
     public function getLogDir()
     {
-        if ($this->environment === 'prod') {
-            return '/var/log';
-        } else {
-            return $this->getProjectDir().'/var/log';
-        }
+        return $this->getProjectDir().'/var/log';
     }
 
     public function registerBundles()

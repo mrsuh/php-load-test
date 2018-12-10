@@ -1,7 +1,6 @@
 #!/usr/bin/env php
 
 <?php
-ini_set('display_errors', 'stderr');
 
 use App\Kernel;
 use Spiral\Goridge\SocketRelay;

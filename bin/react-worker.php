@@ -28,6 +28,8 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false
 $loop   = React\EventLoop\Factory::create();
 $kernel = new Kernel($env, $debug);
 $kernel->boot();
+
+/** @var \Psr\Log\LoggerInterface $logger */
 $logger = $kernel->getContainer()->get('logger');
 $server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterface $request) use ($kernel, $logger) {
 
