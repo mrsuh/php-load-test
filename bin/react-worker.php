@@ -85,6 +85,6 @@ $server->on('error', function (\Exception $e) use ($logger) {
 $socket = new React\Socket\Server('tcp://0.0.0.0:9000', $loop);
 $server->listen($socket);
 
-echo "Server running at tcp://0.0.0.0:9000\n";
+$logger->info('Server running', ['addr' => 'tcp://0.0.0.0:9000']);
 
 $loop->run();

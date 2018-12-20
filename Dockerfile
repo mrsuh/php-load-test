@@ -1,6 +1,7 @@
 FROM php:7.2-cli as build
 
 RUN apt-get update && apt-get upgrade -y \
+    unzip \
     libmcrypt-dev \
     zlib1g-dev \
     && docker-php-ext-install \

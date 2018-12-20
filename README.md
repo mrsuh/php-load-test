@@ -1,9 +1,7 @@
 # PHP Load test
 
-
 * PHP 7.2
 * Symfony 4
-
 
 * PHP FPM
 * Nginx Unit
@@ -24,7 +22,7 @@ cd docker/nginx-unit && docker-compose up
 
 ### React PHP
 ```sh
-cd docker/react-php && docker-compose up
+cd docker/react-php && docker-compose up --scale php=20
 ```
 
 ### Road Runner
@@ -57,7 +55,6 @@ curl 'http://127.0.0.1:8000/' | python -m json.tool
         "short_open_tag": ""
     }
 }
-
 ```
 
 ## Tests
@@ -65,5 +62,5 @@ curl 'http://127.0.0.1:8000/' | python -m json.tool
 cp tests/load.yaml.example tests/load.yaml
 cp tests/monitoring.xml.example tests/monitoring.xml
 echo 'token' > tests/overload_token.txt
-cd tests && docker run -v $(pwd):/var/loadtest -v $HOME/.ssh:/root/.ssh -it direvius/yandex-tank
+cd tests && docker run -v $(pwd):/var/loadtest -v $HOME/.ssh:/root/.ssh --net host -it direvius/yandex-tank
 ```
