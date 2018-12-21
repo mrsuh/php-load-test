@@ -1,23 +1,24 @@
 {
-  "listeners": {
-    "*:8300": {
-      "application": "example_php"
+    "listeners": {
+        "*:8300": {
+            "application": "example_php"
+        }
+    },
+    "applications": {
+        "example_php": {
+            "type": "php",
+            "processes": 20,
+            "root": "/app/public",
+            "index": "index.php",
+            "script": "index.php",
+            "environment": {
+                "TIMEZONE": "Europe/Paris",
+                "APP_ENV": "prod",
+                "APP_TYPE": "nginx-unit"
+            },
+            "options": {
+                "file": "/usr/local/etc/php/php.ini"
+            }
+        }
     }
-  },
-  "applications": {
-    "example_php": {
-      "type": "php",
-      "processes": 20,
-      "root": "/app/public",
-      "index": "index.php",
-      "environment": {
-        "TIMEZONE": "Europe/Paris",
-        "APP_ENV": "prod",
-        "APP_TYPE": "nginx-unit"
-      },
-      "options": {
-        "file": "/usr/local/etc/php/php.ini"
-      }
-    }
-  }
 }

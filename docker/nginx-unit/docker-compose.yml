@@ -18,7 +18,6 @@ services:
         expose:
             - 8300
         volumes:
-            - ./../../var/log:/var/log
             - app-volume:/app:cached
 
     app:

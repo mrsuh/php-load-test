@@ -1,7 +1,5 @@
 FROM ubuntu:18.04
 
-ARG VERSION=1.4-1~xenial
-
 RUN apt-get -y update && apt-get -y install software-properties-common
 
 RUN DEBIAN_FRONTEND=noninteractive && apt-get install -y tzdata
