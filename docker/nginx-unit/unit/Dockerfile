@@ -11,7 +11,8 @@ RUN apt-get -y update && \
         php7.2-cli \
         php7.2-xml \
         php7.2-mbstring \
-        php7.2-common
+        php7.2-common \
+        php7.2-opcache
 
 COPY ./unit.list /etc/apt/sources.list.d/
 
