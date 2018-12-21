@@ -1,2 +1,2 @@
-deb http://packages.nginx.org/unit/ubuntu/ xenial unit
-deb-src http://packages.nginx.org/unit/ubuntu/ xenial unit
+deb https://packages.nginx.org/unit/ubuntu/ bionic unit
+deb-src https://packages.nginx.org/unit/ubuntu/ bionic unit

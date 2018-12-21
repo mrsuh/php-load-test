@@ -1,8 +1,10 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ARG VERSION=1.4-1~xenial
 
 RUN apt-get -y update && apt-get -y install software-properties-common
+
+RUN DEBIAN_FRONTEND=noninteractive && apt-get install -y tzdata
 
 RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 
@@ -21,8 +23,8 @@ ADD http://nginx.org/keys/nginx_signing.key .
 RUN apt-key add nginx_signing.key && \
         apt-get -y update && \
         apt-get -y install \
-			unit=$VERSION \
-			unit-php=$VERSION
+			unit \
+			unit-php
 
 COPY ./conf.json /var/lib/unit/
 COPY ./php.ini /usr/local/etc/php/php.ini
