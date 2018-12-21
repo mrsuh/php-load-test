@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+ARG VERSION=1.7-1~bionic
+
 RUN apt-get -y update && apt-get -y install software-properties-common
 
 RUN DEBIAN_FRONTEND=noninteractive && apt-get install -y tzdata
@@ -21,8 +23,8 @@ ADD http://nginx.org/keys/nginx_signing.key .
 RUN apt-key add nginx_signing.key && \
         apt-get -y update && \
         apt-get -y install \
-			unit \
-			unit-php
+			unit=$VERSION \
+			unit-php=$VERSION
 
 COPY ./conf.json /var/lib/unit/
 COPY ./php.ini /usr/local/etc/php/php.ini
