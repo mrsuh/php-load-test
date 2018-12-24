@@ -5,3 +5,4 @@ http:
         relay:    "unix:///tmp/road-runner.sock"
         pool:
             numWorkers: 20
+            destroyTimeout: 30

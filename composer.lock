@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "354e3b52fe75c0a8099e12caba88b215",
+    "content-hash": "80fd361d93fce5f00bb9c8bc9b07cfa0",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -743,6 +743,58 @@
             "time": "2018-07-31T19:31:26+00:00"
         },
         {
+            "name": "http-interop/http-middleware",
+            "version": "0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/http-interop/http-middleware.git",
+                "reference": "b49e1f9f6c584e704317b563302e566b8ce11858"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/http-interop/http-middleware/zipball/b49e1f9f6c584e704317b563302e566b8ce11858",
+                "reference": "b49e1f9f6c584e704317b563302e566b8ce11858",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Http\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP server-side middleware",
+            "keywords": [
+                "http",
+                "middleware",
+                "psr",
+                "psr-15",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "abandoned": "http-interop/http-server-middleware",
+            "time": "2017-09-18T15:27:03+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.24.0",
             "source": {
@@ -819,6 +871,96 @@
                 "psr-3"
             ],
             "time": "2018-11-05T09:00:11+00:00"
+        },
+        {
+            "name": "php-pm/httpkernel-adapter",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-pm/php-pm-httpkernel.git",
+                "reference": "be94a1aa5507d9b8159bb9af8d5da06d7ce72a6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-pm/php-pm-httpkernel/zipball/be94a1aa5507d9b8159bb9af8d5da06d7ce72a6d",
+                "reference": "be94a1aa5507d9b8159bb9af8d5da06d7ce72a6d",
+                "shasum": ""
+            },
+            "require": {
+                "php-pm/php-pm": "^1.0",
+                "ringcentral/psr7": "^1.2",
+                "symfony/http-foundation": "^2.6|^3.0|^4",
+                "symfony/http-kernel": "^2.6|^3.0|^4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPPM\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2018-09-16T11:15:39+00:00"
+        },
+        {
+            "name": "php-pm/php-pm",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-pm/php-pm.git",
+                "reference": "8818fd7b5aaa9e14d6476667543a7db914a6674e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-pm/php-pm/zipball/8818fd7b5aaa9e14d6476667543a7db914a6674e",
+                "reference": "8818fd7b5aaa9e14d6476667543a7db914a6674e",
+                "shasum": ""
+            },
+            "require": {
+                "http-interop/http-middleware": "^0.5",
+                "monolog/monolog": "^1.3",
+                "paragonie/random_compat": ">=2.0",
+                "php": ">=5.6.0",
+                "react/child-process": "^0.5",
+                "react/event-loop": "^1.0",
+                "react/http": "^0.8",
+                "react/socket": "^1.0",
+                "react/stream": "^1.0",
+                "ringcentral/psr7": "^1.2",
+                "symfony/console": "^2.6|^3.0|^4.0",
+                "symfony/debug": "^2.6|^3.0|^4.0",
+                "symfony/process": "^2.6|^3.0|^4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^5.7"
+            },
+            "suggest": {
+                "php-pm/httpkernel-adapter": "HttpKernel adapter for Symfony and Laravel frameworks"
+            },
+            "bin": [
+                "bin/ppm"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPPM\\": "src"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP-PM is a process manager, supercharger and load balancer for PHP applications.",
+            "time": "2018-09-16T10:44:30+00:00"
         },
         {
             "name": "psr/cache",
@@ -1151,6 +1293,48 @@
                 "reactphp"
             ],
             "time": "2018-06-25T12:52:40+00:00"
+        },
+        {
+            "name": "react/child-process",
+            "version": "v0.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp/child-process.git",
+                "reference": "aae49d7f1340bafb695b9af3ce4421ea41a39620"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp/child-process/zipball/aae49d7f1340bafb695b9af3ce4421ea41a39620",
+                "reference": "aae49d7f1340bafb695b9af3ce4421ea41a39620",
+                "shasum": ""
+            },
+            "require": {
+                "evenement/evenement": "^3.0 || ^2.0 || ^1.0",
+                "php": ">=5.3.0",
+                "react/event-loop": "^1.0 || ^0.5 || ^0.4 || ^0.3.5",
+                "react/stream": "^1.0 || ^0.7.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.4 || ^5.7 || ^4.8.35",
+                "sebastian/environment": "^3.0 || ^2.0 || ^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "React\\ChildProcess\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Event-driven library for executing child processes with ReactPHP.",
+            "keywords": [
+                "event-driven",
+                "process",
+                "reactphp"
+            ],
+            "time": "2018-01-18T14:53:06+00:00"
         },
         {
             "name": "react/dns",
@@ -2793,6 +2977,55 @@
                 "shim"
             ],
             "time": "2018-09-21T13:07:52+00:00"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v4.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "471f6e24172366a97365baaae588ddaafbba9b20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/471f6e24172366a97365baaae588ddaafbba9b20",
+                "reference": "471f6e24172366a97365baaae588ddaafbba9b20",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-11-20T16:14:00+00:00"
         },
         {
             "name": "symfony/psr-http-message-bridge",
