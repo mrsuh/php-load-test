@@ -1,0 +1,13 @@
+{
+    "bootstrap": "symfony",
+    "app-env": "prod",
+    "logging": 0,
+    "debug": 0,
+    "workers": 2,
+    "max-requests": 5000,
+    "max-execution-time": 5,
+    "reload-timeout": 3,
+    "host": "tcp://0.0.0.0",
+    "port": 9000,
+    "memory-limit": "256M"
+}

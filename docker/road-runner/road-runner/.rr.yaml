@@ -4,5 +4,5 @@ http:
         command: "php /app/bin/road-runner-worker.php"
         relay:    "unix:///tmp/road-runner.sock"
         pool:
-            numWorkers: 20
-            destroyTimeout: 30
+            numWorkers: 2
+            destroyTimeout: 3

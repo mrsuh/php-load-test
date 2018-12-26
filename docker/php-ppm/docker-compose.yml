@@ -26,19 +26,11 @@ services:
             APP_TYPE: php-ppm
         volumes:
             - app-volume:/app:cached
+            - ./php-cli/config.json:/app/config.json
         command:
             - /app/vendor/bin/ppm
             - start
-            - --bootstrap=symfony
-            - --app-env=prod
-            - --logging=0
-            - --debug=0
-            - --workers=20
-            - --max-requests=5000
-            - --max-execution-time=5
-            - --reload-timeout=30
-            - --host=tcp://0.0.0.0
-            - --port=9000
+            - --config=/app/config.json
     app:
         build: ../..
         volumes:
