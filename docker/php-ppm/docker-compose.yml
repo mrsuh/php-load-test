@@ -27,9 +27,7 @@ services:
         volumes:
             - app-volume:/app:cached
             - ./php-cli/config.json:/app/config.json
-            - ./php-cli/wrapper.sh:/app/wrapper.sh
         command:
-            - /app/wrapper.sh
             - /app/vendor/bin/ppm
             - start
             - --config=/app/config.json
