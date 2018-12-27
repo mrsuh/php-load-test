@@ -12,6 +12,9 @@ services:
         depends_on:
             - road-runner
             - app
+        ulimits:
+            nproc: 819200
+            nofile: 819200
 
     road-runner:
         build: ./road-runner

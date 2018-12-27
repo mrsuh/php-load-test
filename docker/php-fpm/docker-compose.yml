@@ -13,6 +13,9 @@ services:
         depends_on:
             - php
             - app
+        ulimits:
+            nproc: 819200
+            nofile: 819200
 
     php:
         build: ./php-fpm
