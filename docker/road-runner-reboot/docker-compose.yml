@@ -21,7 +21,7 @@ services:
         working_dir: /roadrunner
         environment:
             APP_ENV: prod
-            APP_TYPE: road-runner
+            APP_TYPE: road-runner-reboot
         volumes:
             - app-volume:/app:cached
         expose:
