@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+    nginx:
+        image: nginx:latest
+        ports:
+            - 8000:80
+        volumes:
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+            - ./nginx/docker.conf:/etc/nginx/conf.d/default.conf:ro
+        depends_on:
+            - php
+            - app
+        ulimits:
+            nproc: 819200
+            nofile: 819200
+
+    php:
+        build: ./php-cli
+        working_dir: /app
+        environment:
+            TIMEZONE: Europe/Paris
+            APP_ENV: prod
+            APP_TYPE: react-php
+        volumes:
+            - app-volume:/app:cached
+        expose:
+            - 9000
+        command:
+            - /app/bin/react-worker.php
+            - --reboot-kernel-after-request
+
+    app:
+        build: ../..
+        volumes:
+            - app-volume:/app
+
+volumes:
+    app-volume:

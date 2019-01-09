@@ -208,6 +208,14 @@ phantom:
 | react-php   | 49.254                    | 53.608                 | 24.510                      | 28.571                   | 1,155,225,600              | 1,158,742,016           |
 
 
+## Cumulative table
+|           | low response time(99%) | high response time(99%) | low cpu(max)          | high cpu(max) | low memory(max)    | high memory(max)  |
+|-----------|------------------------|-------------------------|-----------------------|---------------|--------------------|-------------------|
+| 100 rps   | road-runner/react-php  | nginx-unit              | react-php             | php-ppm       | php-fpm/php-ppm    | react-php         |
+| 500 rps   | road-runner/react-php  | php-ppm                 | react-php             | php-ppm       | php-fpm/nginx-unit | react-php         |
+| 1000 rps  | road-runner/react-php  | php-fpm                 | react-php/road-runner | php-ppm       | php-fpm            | react-php/php-ppm |
+| 10000 rps | road-runner            | php-fpm                 | react-php             | nginx-unit    | php-fpm            | road-runner       |
+
 ## Charts
 
 ### Test log directories

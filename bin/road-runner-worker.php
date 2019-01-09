@@ -30,12 +30,13 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false
     Request::setTrustedHosts(explode(',', $trustedHosts));
 }
 
-$kernel                = new Kernel($env, $debug);
+$kernel = new Kernel($env, $debug);
 $kernel->boot();
-$relay                 = new SocketRelay('/tmp/road-runner.sock', null, SocketRelay::SOCK_UNIX);
-$psr7                  = new PSR7Client(new Worker($relay));
-$httpFoundationFactory = new HttpFoundationFactory();
-$diactorosFactory      = new DiactorosFactory();
+$rebootKernelAfterRequest = in_array('--reboot-kernel-after-request', $argv);
+$relay                    = new SocketRelay('/tmp/road-runner.sock', null, SocketRelay::SOCK_UNIX);
+$psr7                     = new PSR7Client(new Worker($relay));
+$httpFoundationFactory    = new HttpFoundationFactory();
+$diactorosFactory         = new DiactorosFactory();
 
 while ($req = $psr7->acceptRequest()) {
     try {
@@ -43,6 +44,9 @@ while ($req = $psr7->acceptRequest()) {
         $response = $kernel->handle($request);
         $psr7->respond($diactorosFactory->createResponse($response));
         $kernel->terminate($request, $response);
+        if($rebootKernelAfterRequest) {
+            $kernel->reboot(null);
+        }
     } catch (\Throwable $e) {
         $psr7->getWorker()->error((string)$e);
     }

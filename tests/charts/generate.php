@@ -380,7 +380,7 @@ foreach ($monitoring as $dirName => $data) {
         foreach ($d as $item) {
             $cpuUserSum   += $item['custom:cpu-cpu-total_usage_system'];
             $cpuSystemSum += $item['custom:cpu-cpu-total_usage_user'];
-            $memUsedSum   += $item['Memory_used'] / 1000000;
+            $memUsedSum   += $item['Memory_used'] / 1024 / 1024;
         }
 
         $count       = count($d);

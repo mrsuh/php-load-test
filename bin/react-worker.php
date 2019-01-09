@@ -28,10 +28,11 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false
 $loop   = React\EventLoop\Factory::create();
 $kernel = new Kernel($env, $debug);
 $kernel->boot();
+$rebootKernelAfterRequest = in_array('--reboot-kernel-after-request', $argv);
 
 /** @var \Psr\Log\LoggerInterface $logger */
 $logger = $kernel->getContainer()->get('logger');
-$server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterface $request) use ($kernel, $logger) {
+$server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterface $request) use ($kernel, $logger, $rebootKernelAfterRequest) {
 
     $method  = $request->getMethod();
     $headers = $request->getHeaders();
@@ -70,6 +71,9 @@ $server = new React\Http\Server(function (Psr\Http\Message\ServerRequestInterfac
     }
 
     $kernel->terminate($sfRequest, $sfResponse);
+    if ($rebootKernelAfterRequest) {
+        $kernel->reboot(null);
+    }
 
     return new React\Http\Response(
         $sfResponse->getStatusCode(),
