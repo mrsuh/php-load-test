@@ -272,7 +272,11 @@ function getColorByName(string $name)
             return 'green';
         case 'road-runner':
             return 'purple';
+        case 'road-runner-reboot':
+            return 'magenta';
         case 'react-php':
+            return 'yellow';
+        case 'react-php-reboot':
             return 'orange';
     }
 
@@ -288,6 +292,7 @@ function normalizeData(array &$data)
 if (!isset($argv[1])) {
     exit(1);
 }
+
 $dir = $argv[1];
 if (!is_dir($dir)) {
     exit(1);
@@ -328,6 +333,8 @@ foreach (scandir($dir) as $dirName) {
             $phantom[$dirName] = parsePhantomFile($filePath);
             continue;
         }
+
+        unlink($filePath);
     }
 }
 
@@ -354,69 +361,51 @@ foreach ($phantom as $dirName => $data) {
 }
 file_put_contents($outFile, $responseChart->build(), FILE_APPEND);
 
-$cpuUserChart = new ChartBuilder();
-$cpuUserChart->setTitle('CPU user usage');
-$cpuUserChart->setXTitle('Time');
-$cpuUserChart->setYTitle('CPU (%)');
+$cpuChart = new ChartBuilder();
+$cpuChart->setTitle('CPU usage');
+$cpuChart->setXTitle('Time');
+$cpuChart->setYTitle('CPU (%)');
 
-$cpuSystemChart = new ChartBuilder();
-$cpuSystemChart->setTitle('CPU system usage');
-$cpuSystemChart->setXTitle('Time');
-$cpuSystemChart->setYTitle('CPU (%)');
-
-$memUsageChart = new ChartBuilder();
-$memUsageChart->setTitle('Memory usage');
-$memUsageChart->setXTitle('Time');
-$memUsageChart->setYTitle('Memory (MB)');
+$memChart = new ChartBuilder();
+$memChart->setTitle('Memory usage');
+$memChart->setXTitle('Time');
+$memChart->setYTitle('Memory (MB)');
 
 foreach ($monitoring as $dirName => $data) {
-    $cpuUser   = [];
-    $cpuSystem = [];
-    $memUsed   = [];
+    $cpu = [];
+    $mem = [];
     foreach ($data as $timestamp => $d) {
-        $cpuUserSum   = 0;
-        $cpuSystemSum = 0;
-        $memUsedSum   = 0;
+        $cpuSum = 0;
+        $memSum = 0;
         foreach ($d as $item) {
-            $cpuUserSum   += $item['custom:cpu-cpu-total_usage_system'];
-            $cpuSystemSum += $item['custom:cpu-cpu-total_usage_user'];
-            $memUsedSum   += $item['Memory_used'] / 1024 / 1024;
+            $cpuSum += ($item['custom:cpu-cpu-total_usage_system'] + $item['custom:cpu-cpu-total_usage_user']);
+            $memSum    += $item['Memory_used'] / 1024 / 1024;
         }
 
-        $count       = count($d);
-        $cpuUser[]   = $cpuUserSum / $count;
-        $cpuSystem[] = $cpuSystemSum / $count;
-        $memUsed[]   = $memUsedSum / $count;
+        $count = count($d);
+        $cpu[] = $cpuSum / $count;
+        $mem[] = $memSum / $count;
     }
 
-    normalizeData($cpuUser);
-    $cpuUserChart->addChart(
+    normalizeData($cpu);
+    $cpuChart->addChart(
         (new Chart())
             ->setName($dirName)
             ->setColor(getColorByName($dirName))
-            ->setData($cpuUser)
+            ->setData($cpu)
     );
 
-    normalizeData($cpuSystem);
-    $cpuSystemChart->addChart(
+    normalizeData($mem);
+    $memChart->addChart(
         (new Chart())
             ->setName($dirName)
             ->setColor(getColorByName($dirName))
-            ->setData($cpuSystem)
-    );
-
-    normalizeData($memUsed);
-    $memUsageChart->addChart(
-        (new Chart())
-            ->setName($dirName)
-            ->setColor(getColorByName($dirName))
-            ->setData($memUsed)
+            ->setData($mem)
     );
 }
 
-file_put_contents($outFile, $cpuUserChart->build(), FILE_APPEND);
-file_put_contents($outFile, $cpuSystemChart->build(), FILE_APPEND);
-file_put_contents($outFile, $memUsageChart->build(), FILE_APPEND);
+file_put_contents($outFile, $cpuChart->build(), FILE_APPEND);
+file_put_contents($outFile, $memChart->build(), FILE_APPEND);
 
 echo 'Done!' . PHP_EOL;
 
