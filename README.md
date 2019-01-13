@@ -89,15 +89,15 @@ phantom:
 * react-php-reboot https://overload.yandex.net/152063
 
 ### Cumulative quantiles (ms)
-|                    | 99%(ms) | 90%(ms) | 80%(ms) | 50%(ms) | HTTP OK(%) | HTTP OK(count) |
+|                    | 95%(ms) | 90%(ms) | 80%(ms) | 50%(ms) | HTTP OK(%) | HTTP OK(count) |
 | ------------------ | ------- | ------- | ------- | ------- | ---------- | -------------- |
-| php-fpm            | 18      | 6.3     | 4.35    | 3.59    | 100        | 57030          |
-| php-ppm            | 18      | 6       | 3.88    | 3.16    | 100        | 57030          |
-| nginx-unit         | 19      | 6.6     | 4.43    | 3.69    | 100        | 57030          |
-| road-runner        | 16      | 5.1     | 3.53    | 2.92    | 100        | 57030          |
-| road-runner-reboot | 20      | 8.6     | 5.3     | 3.85    | 100        | 57030          |
-| react-php          | 17      | 4.91    | 3.29    | 2.74    | 100        | 57030          |
-| react-php-reboot   | 21      | 8.5     | 5.5     | 3.95    | 100        | 57030          |
+| php-fpm            | 9.9     | 6.3     | 4.35    | 3.59    | 100        | 57030          |
+| php-ppm            | 9.4     | 6       | 3.88    | 3.16    | 100        | 57030          |
+| nginx-unit         | 11      | 6.6     | 4.43    | 3.69    | 100        | 57030          |
+| road-runner        | 8.1     | 5.1     | 3.53    | 2.92    | 100        | 57030          |
+| road-runner-reboot | 12      | 8.6     | 5.3     | 3.85    | 100        | 57030          |
+| react-php          | 8.5     | 4.91    | 3.29    | 2.74    | 100        | 57030          |
+| react-php-reboot   | 13      | 8.5     | 5.5     | 3.95    | 100        | 57030          |
 
 ### Monitoring
 |                    | cpu median(%) | cpu max(%) | memory median(MB) | memory max(MB) |
@@ -130,15 +130,15 @@ phantom:
 * react-php-reboot https://overload.yandex.net/152064
 
 ### Cumulative quantiles (ms)
-|                    | 99%(ms) | 90%(ms) | 80%(ms) | 50%(ms) | HTTP OK(%) | HTTP OK(count) |
+|                    | 95%(ms) | 90%(ms) | 80%(ms) | 50%(ms) | HTTP OK(%) | HTTP OK(count) |
 | ------------------ | ------- | ------- | ------- | ------- | ---------- | -------------- |
-| php-fpm            | 21      | 8.4     | 5.3     | 3.69    | 100        | 285030         |
-| php-ppm            | 35      | 9       | 4.72    | 3.24    | 100        | 285030         |
-| nginx-unit         | 21      | 8       | 5.5     | 3.93    | 100        | 285030         |
-| road-runner        | 18      | 6       | 3.71    | 2.83    | 100        | 285030         |
-| road-runner-reboot | 23      | 11      | 7.1     | 4.45    | 100        | 285030         |
-| react-php          | 18      | 5.8     | 3.57    | 2.68    | 100        | 285030         |
-| react-php-reboot   | 23      | 12      | 7.2     | 4.21    | 100        | 285030         |
+| php-fpm            | 13      | 8.4     | 5.3     | 3.69    | 100        | 285030         |
+| php-ppm            | 15      | 9       | 4.72    | 3.24    | 100        | 285030         |
+| nginx-unit         | 12      | 8       | 5.5     | 3.93    | 100        | 285030         |
+| road-runner        | 9.6     | 6       | 3.71    | 2.83    | 100        | 285030         |
+| road-runner-reboot | 14      | 11      | 7.1     | 4.45    | 100        | 285030         |
+| react-php          | 9.3     | 5.8     | 3.57    | 2.68    | 100        | 285030         |
+| react-php-reboot   | 15      | 12      | 7.2     | 4.21    | 100        | 285030         |
 
 ### Monitoring
 |                    | cpu median(%) | cpu max(%) | memory median(MB) | memory max(MB) |
@@ -169,15 +169,15 @@ phantom:
 * react-php-reboot https://overload.yandex.net/152065
 
 ### Cumulative quantiles (ms)
-|                    | 99%(ms) | 90%(ms) | 80%(ms) | 50%(ms) | HTTP OK(%) | HTTP OK(count) |
+|                    | 95%(ms) | 90%(ms) | 80%(ms) | 50%(ms) | HTTP OK(%) | HTTP OK(count) |
 | ------------------ | ------- | ------- | ------- | ------- | ---------- | -------------- |
 | php-fpm            | 11050   | 11050   | 9040    | 195     | 80.67      | 72627          |
-| php-ppm            | 2880    | 2740    | 2685    | 2545    | 100        | 90030          |
-| nginx-unit         | 126     | 80      | 60      | 21      | 100        | 90030          |
-| road-runner        | 55      | 15      | 7.1     | 3.21    | 100        | 90030          |
-| road-runner-reboot | 1125    | 1100    | 1085    | 1060    | 100        | 90030          |
-| react-php          | 52      | 13      | 5.6     | 2.86    | 100        | 90030          |
-| react-php-reboot   | 39      | 24      | 19      | 11      | 100        | 90030          |
+| php-ppm            | 2785    | 2740    | 2685    | 2545    | 100        | 90030          |
+| nginx-unit         | 98      | 80      | 60      | 21      | 100        | 90030          |
+| road-runner        | 27      | 15      | 7.1     | 3.21    | 100        | 90030          |
+| road-runner-reboot | 1110    | 1100    | 1085    | 1060    | 100        | 90030          |
+| react-php          | 23      | 13      | 5.6     | 2.86    | 100        | 90030          |
+| react-php-reboot   | 28      | 24      | 19      | 11      | 100        | 90030          |
 
 ### Monitoring
 |                    | cpu median(%) | cpu max(%) | memory median(MB) | memory max(MB) |
@@ -209,15 +209,15 @@ phantom:
 * react-php-reboot https://overload.yandex.net/152066
 
 ### Cumulative quantiles (ms)
-|                    | 99%(ms) | 90%(ms) | 80%(ms) | 50%(ms) | HTTP OK(%) | HTTP OK(count) |
+|                    | 95%(ms) | 90%(ms) | 80%(ms) | 50%(ms) | HTTP OK(%) | HTTP OK(count) |
 | ------------------ | ------- | ------- | ------- | ------- | ---------- | -------------- |
 | php-fpm            | 11050   | 11050   | 11050   | 1880    | 70.466     | 317107         |
-| php-ppm            | 2815    | 2730    | 2695    | 2605    | 100        | 450015         |
-| nginx-unit         | 1035    | 1010    | 1000    | 980     | 100        | 450015         |
-| road-runner        | 655     | 630     | 615     | 580     | 100        | 450015         |
-| road-runner-reboot | 1155    | 1120    | 1110    | 1085    | 100        | 450015         |
-| react-php          | 3300    | 1090    | 1045    | 58      | 99.996     | 449996         |
-| react-php-reboot   | 6290    | 3070    | 1255    | 91      | 99.72      | 448753         |
+| php-ppm            | 2755    | 2730    | 2695    | 2605    | 100        | 450015         |
+| nginx-unit         | 1020    | 1010    | 1000    | 980     | 100        | 450015         |
+| road-runner        | 640     | 630     | 615     | 580     | 100        | 450015         |
+| road-runner-reboot | 1130    | 1120    | 1110    | 1085    | 100        | 450015         |
+| react-php          | 1890    | 1090    | 1045    | 58      | 99.996     | 449996         |
+| react-php-reboot   | 3480    | 3070    | 1255    | 91      | 99.72      | 448753         |
 
 ### Monitoring
 |                    | cpu median(%) | cpu max(%) | memory median(MB) | memory max(MB) |
@@ -230,23 +230,6 @@ phantom:
 | react-php          | 73.76         | 82.18      | 1,101.71          | 1,105.06       |
 | react-php-reboot   | 85.77         | 91.92      | 975.85            | 978.42         |
 
-
-## Cumulative table
-| rps   | low time              | high time        | low cpu   | high cpu           | low memory         | high memory |
-| ----- | --------------------- | ---------------- | --------- | ------------------ | ------------------ | ----------- |
-| 100   | road-runner           | react-php-reboot | react-php | php-ppm            | road-runner-reboot | react-php   |
-| 500   | road-runner/react-php | php-ppm          | react-php | road-runner-reboot | road-runner-reboot | react-php   |
-| 1000  | react-php-reboot      | php-fpm          | react-php | php-ppm            | react-php-reboot   | php-ppm     |
-| 10000 | road-runner           | php-fpm          | php-fpm   | nginx-unit         | react-php-reboot   | road-runner |
-
-
-without react-php/road-runner
-| rps   | low time           | high time        | low cpu                                                | high cpu           | low memory         | high memory |
-| ----- | ------------------ | ---------------- | ------------------------------------------------------ | ------------------ | ------------------ | ----------- |
-| 100   | php-fpm php-ppm    | react-php-reboot | php-fpm nginx-unit road-runner-reboot react-php-reboot | php-ppm            | road-runner-reboot | nginx-unit  |
-| 500   | php-fpm nginx-unit | php-ppm          | nginx-unit react-php-reboot                            | road-runner-reboot | road-runner-reboot | php-ppm     |
-| 1000  | react-php-reboot   | php-fpm          | php-fpm                                                | php-ppm            | react-php-reboot   | php-ppm     |
-| 10000 | nginx-unit         | php-fpm          | php-fpm                                                | nginx-unit         | react-php-reboot   | php-ppm     |
 ## Charts
 
 ### Test log directories

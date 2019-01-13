@@ -298,7 +298,7 @@ if (!is_dir($dir)) {
     exit(1);
 }
 
-$outFile = __DIR__ . '/tank.html';
+$outFile = __DIR__ . '/chart.html';
 if (isset($argv[2])) {
     $outFile = $argv[2];
 }
@@ -333,8 +333,6 @@ foreach (scandir($dir) as $dirName) {
             $phantom[$dirName] = parsePhantomFile($filePath);
             continue;
         }
-
-        unlink($filePath);
     }
 }
 
