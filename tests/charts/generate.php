@@ -266,6 +266,8 @@ function getColorByName(string $name)
     switch ($name) {
         case 'php-fpm':
             return 'blue';
+        case 'php-fpm-80':
+            return 'navy';
         case 'php-ppm':
             return 'red';
         case 'nginx-unit':

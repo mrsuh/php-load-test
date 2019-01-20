@@ -161,6 +161,7 @@ phantom:
 ```
 ### Overload links
 * php-fpm https://overload.yandex.net/150841
+* php-fpm-80 https://overload.yandex.net/153612
 * php-ppm https://overload.yandex.net/150842
 * nginx-unit https://overload.yandex.net/150843
 * road-runner https://overload.yandex.net/150844
@@ -172,6 +173,7 @@ phantom:
 |                    | 95%(ms) | 90%(ms) | 80%(ms) | 50%(ms) | HTTP OK(%) | HTTP OK(count) |
 | ------------------ | ------- | ------- | ------- | ------- | ---------- | -------------- |
 | php-fpm            | 11050   | 11050   | 9040    | 195     | 80.67      | 72627          |
+| php-fpm-80         | 3150    | 1375    | 1165    | 152     | 99.85      | 89895          |
 | php-ppm            | 2785    | 2740    | 2685    | 2545    | 100        | 90030          |
 | nginx-unit         | 98      | 80      | 60      | 21      | 100        | 90030          |
 | road-runner        | 27      | 15      | 7.1     | 3.21    | 100        | 90030          |
@@ -183,6 +185,7 @@ phantom:
 |                    | cpu median(%) | cpu max(%) | memory median(MB) | memory max(MB) |
 | ------------------ | ------------- | ---------- | ----------------- | -------------- |
 | php-fpm            | 12.66         | 78.25      | 990.16            | 1,006.56       |
+| php-fpm-80         | 83.78         | 91.28      | 746.01            | 937.24         |
 | php-ppm            | 66.16         | 91.20      | 1,088.74          | 1,102.92       |
 | nginx-unit         | 78.11         | 88.77      | 1,010.15          | 1,062.01       |
 | road-runner        | 42.93         | 54.23      | 1,010.89          | 1,068.48       |
@@ -201,6 +204,7 @@ phantom:
 
 ### Overload links
 * php-fpm https://overload.yandex.net/150849
+* php-fpm-80 https://overload.yandex.net/153615
 * php-ppm https://overload.yandex.net/150874
 * nginx-unit https://overload.yandex.net/150876
 * road-runner https://overload.yandex.net/150881
@@ -212,6 +216,7 @@ phantom:
 |                    | 95%(ms) | 90%(ms) | 80%(ms) | 50%(ms) | HTTP OK(%) | HTTP OK(count) |
 | ------------------ | ------- | ------- | ------- | ------- | ---------- | -------------- |
 | php-fpm            | 11050   | 11050   | 11050   | 1880    | 70.466     | 317107         |
+| php-fpm-80         | 3260    | 3140    | 1360    | 1145    | 99.619     | 448301         |
 | php-ppm            | 2755    | 2730    | 2695    | 2605    | 100        | 450015         |
 | nginx-unit         | 1020    | 1010    | 1000    | 980     | 100        | 450015         |
 | road-runner        | 640     | 630     | 615     | 580     | 100        | 450015         |
@@ -223,6 +228,7 @@ phantom:
 |                    | cpu median(%) | cpu max(%) | memory median(MB) | memory max(MB) |
 | ------------------ | ------------- | ---------- | ----------------- | -------------- |
 | php-fpm            | 5.57          | 79.35      | 984.47            | 998.78         |
+| php-fpm-80         | 85.05         | 92.19      | 936.64            | 943.93         |
 | php-ppm            | 66.86         | 82.41      | 1,089.31          | 1,097.41       |
 | nginx-unit         | 86.14         | 93.94      | 1,067.71          | 1,069.52       |
 | road-runner        | 73.41         | 82.72      | 1,129.48          | 1,134.00       |
