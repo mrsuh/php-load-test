@@ -64,10 +64,18 @@ curl 'http://127.0.0.1:8000/' | python -m json.tool
 ```
 
 ## Tests
++ copy tests/load.yaml from tests/load.yaml.example
+and replace $SERVER and $PORT variables in tests/load.yaml
+
++ copy tests/monitoring.xml from tests/monitoring.xml.example
+and replace $SERVER and $USERNAME variables in tests/monitoring.xml
+
++ get token from https://overload.yandex.net and put it to file tests/overload_token.txt
+
++ put ssh public key to target server
+
++ run yandex-tank:
 ```sh
-cp tests/load.yaml.example tests/load.yaml
-cp tests/monitoring.xml.example tests/monitoring.xml
-echo 'token' > tests/overload_token.txt
 cd tests && docker run -v $(pwd):/var/loadtest -v $HOME/.ssh:/root/.ssh --net host -it direvius/yandex-tank
 ```
 
