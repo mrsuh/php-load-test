@@ -17,7 +17,7 @@ services:
             nofile: 819200
 
     road-runner:
-        build: ./road-runner
+        image: mrsuh/php-load-test-roadrunner:1.0.0
         working_dir: /roadrunner
         environment:
             APP_ENV: prod
@@ -28,7 +28,7 @@ services:
             - 9000
 
     app:
-        build: ../..
+        image: mrsuh/php-load-test-app:1.0.0
         volumes:
             - app-volume:/app
 

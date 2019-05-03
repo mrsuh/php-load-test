@@ -1,36 +1,26 @@
-FROM ubuntu:18.04
+FROM centos:7
 
-ARG VERSION=1.7-1~bionic
+RUN yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 
-RUN apt-get -y update && apt-get -y install software-properties-common
+RUN yum -y update
+RUN yum -y install net-tools
 
-RUN DEBIAN_FRONTEND=noninteractive && apt-get install -y tzdata
-
-RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
-
-RUN apt-get -y update && \
-    apt-get -y install php7.2 \
-        php7.2-cli \
-        php7.2-xml \
-        php7.2-intl \
-        php7.2-iconv \
-        php7.2-zip \
-        php7.2-bcmath \
-        php7.2-mbstring \
-        php7.2-common \
-        php7.2-opcache
-
-COPY ./unit.list /etc/apt/sources.list.d/
-
-ADD http://nginx.org/keys/nginx_signing.key .
-
-RUN apt-key add nginx_signing.key && \
-        apt-get -y update && \
-        apt-get -y install \
-			unit=$VERSION \
-			unit-php=$VERSION
+RUN yum -y install unit php-unit php72-unit-php
+RUN yum -y install php72 \
+php72-php-cli \
+php72-php-xml \
+php72-php-intl \
+php72-php-iconv \
+php72-php-zip \
+php72-php-bcmath \
+php72-php-mbstring \
+php72-php-common \
+php72-php-opcache
 
 COPY ./conf.json /var/lib/unit/
 COPY ./php.ini /usr/local/etc/php/php.ini
 
-CMD ["/usr/sbin/unitd", "--no-daemon", "--control", "0.0.0.0:8080", "--log", "/dev/stdout"]
+RUN mkdir /run/unit
+RUN touch /run/unit/unit.pid
+
+CMD ["/usr/sbin/unitd", "--no-daemon", "--control", "0.0.0.0:8080", "--log", "/var/log/unit/unit.log", "--state", "/var/lib/unit"]

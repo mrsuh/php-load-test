@@ -6,7 +6,7 @@
     },
     "applications": {
         "example_php": {
-            "type": "php 7.2",
+            "type": "php",
             "processes": 2,
             "root": "/app/public",
             "index": "index.php",

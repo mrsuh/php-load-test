@@ -17,7 +17,7 @@ services:
             nofile: 819200
 
     php:
-        build: ./php-cli
+        image: mrsuh/php-load-test-php-cli:1.0.0
         working_dir: /app
         environment:
             TIMEZONE: Europe/Paris
@@ -31,7 +31,7 @@ services:
             - /app/bin/react-worker.php
 
     app:
-        build: ../..
+        image: mrsuh/php-load-test-app:1.0.0
         volumes:
             - app-volume:/app
 

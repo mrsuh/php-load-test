@@ -17,14 +17,14 @@ services:
             nofile: 819200
 
     unit:
-        build: ./unit
+        image: mrsuh/php-load-test-nginx-unit:1.0.0
         expose:
             - 8300
         volumes:
             - app-volume:/app:cached
 
     app:
-        build: ../..
+        image: mrsuh/php-load-test-app:1.0.0
         volumes:
             - app-volume:/app
 

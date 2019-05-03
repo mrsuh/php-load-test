@@ -18,7 +18,7 @@ services:
             nofile: 819200
 
     php:
-        build: ./php-fpm
+        image: mrsuh/php-load-test-php-fpm:1.0.0
         hostname: php
         working_dir: /app
         expose:
@@ -31,7 +31,7 @@ services:
             - app-volume:/app:cached
 
     app:
-        build: ../..
+        image: mrsuh/php-load-test-app:1.0.0
         volumes:
             - app-volume:/app
 
